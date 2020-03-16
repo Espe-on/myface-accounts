@@ -6,7 +6,7 @@ namespace MyFace.Services
 {
     public class HasherNSalter
     {
-        public static string DoHashNSalt(string password)
+        public static byte[] MakeSalt()
         {
             byte[] salt = new byte[128 / 8];
             using (var rng = RandomNumberGenerator.Create())
@@ -14,6 +14,10 @@ namespace MyFace.Services
                 rng.GetBytes(salt);
             }
 
+            return salt;
+        }
+        public static string DoHashNSalt(string password, byte[] salt)
+        {
             string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password: password,
                 salt: salt,
