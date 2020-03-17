@@ -23,9 +23,7 @@ namespace MyFace.Models.Request
         public string ProfileImageUrl { get; set; }
         
         public string CoverImageUrl { get; set; }
-
-        public byte[] PasswordSalt { get; set; }
-
+        
         [Required(ErrorMessage = "Password does not match rules")]
         [MinLength(12)]
         [StringLength(64)]
