@@ -16,7 +16,7 @@ namespace MyFace.Services
 
             return salt;
         }
-        public static string DoHashNSalt(string password, byte[] salt)
+        public static string DoHash(string password, byte[] salt)
         {
             string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password: password,

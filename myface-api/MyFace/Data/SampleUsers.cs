@@ -130,7 +130,7 @@ namespace MyFace.Data
                 ProfileImageUrl = ImageGenerator.GetProfileImage(_data[index][2]),
                 CoverImageUrl = ImageGenerator.GetCoverImage(index),
                 PasswordSalt = newSalt,
-                HashedPassword = HasherNSalter.DoHashNSalt(_data[index][4], newSalt),
+                HashedPassword = HasherNSalter.DoHash(_data[index][4], newSalt),
             };
         }
     }
