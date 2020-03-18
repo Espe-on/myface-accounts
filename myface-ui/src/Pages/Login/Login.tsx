@@ -2,6 +2,7 @@
 import {Page} from "../Page/Page";
 import {LoginContext} from "../../Components/LoginManager/LoginManager";
 import "./Login.scss";
+import {NavLink} from "react-router-dom";
 
 export function Login(): JSX.Element {
     const loginContext = useContext(LoginContext);
@@ -30,6 +31,7 @@ export function Login(): JSX.Element {
                 
                 <button className="submit-button" type="submit">Log In</button>
             </form>
+            <h2><NavLink className="NavLink" to="/user/create">Create User Account</NavLink></h2>
         </Page>
     );
 }

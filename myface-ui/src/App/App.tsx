@@ -8,13 +8,19 @@ import {Login} from "../Pages/Login/Login";
 import {LoginContext, LoginManager} from "../Components/LoginManager/LoginManager";
 import {Profile} from "../Pages/Profile/Profile";
 import {CreatePost} from "../Pages/CreatePost/CreatePost";
+import {CreateUsers} from "../Pages/CreateUsers/CreateUsers";
 
 
 function Routes(): ReactElement {
     const loginContext = useContext(LoginContext);
     
     if (!loginContext.isLoggedIn) {
-        return <Login/>
+        return (
+            <Switch>
+                <Route path="" component={Login}/>
+                <Route exact path ="/user/create" component={CreateUsers}/>
+            </Switch>
+        )
     }
     
     return (
