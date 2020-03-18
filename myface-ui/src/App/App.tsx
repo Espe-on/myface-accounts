@@ -18,7 +18,6 @@ function Routes(): ReactElement {
         return (
             <Switch>
                 <Route path="" component={Login}/>
-                <Route exact path ="/user/create" component={CreateUsers}/>
             </Switch>
         )
     }
@@ -28,6 +27,7 @@ function Routes(): ReactElement {
             <Route exact path="/" component={Feed}/>
             <Route exact path="/users" component={Users}/>
             <Route exact path="/users/:id" component={Profile}/>
+            <Route exact path ="/new-user" component={CreateUsers}/>
             <Route exact path="/new-post" component={CreatePost}/>
             <Route path="" component={NotFound}/>
         </Switch>
