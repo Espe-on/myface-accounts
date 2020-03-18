@@ -1,10 +1,10 @@
 ﻿import React from 'react';
 import {Page} from "../Page/Page";
-import {fetchPosts} from "../../Api/apiClient";
 import {PostCard} from "../../Components/PostCard/PostCard";
 import {InfiniteList} from "../../Components/InfititeList/InfiniteList";
 import {Link} from "react-router-dom";
 import './Feed.scss';
+import {fetchPosts} from "../../ApiTasks/Posts/fetchPosts";
 
 export function Feed(): JSX.Element {
     return (

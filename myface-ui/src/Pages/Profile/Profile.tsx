@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom';
 import {Page} from "../Page/Page";
 import {UserDetails} from "../../Components/UserDetails/UserDetails";
 import {PostList} from "../../Components/PostList/PostList";
-import {fetchPostsDislikedBy, fetchPostsForUser, fetchPostsLikedBy} from "../../Api/apiClient";
 import "./Profile.scss";
+import {fetchPostsLikedBy} from "../../ApiTasks/Posts/fetchPostsLikeBy";
+import {fetchPostsDislikedBy} from "../../ApiTasks/Posts/fetchPostsDislikedBy";
+import {fetchPostsForUser} from "../../ApiTasks/Posts/fetchPostsForUser";
 
 export function Profile(): JSX.Element {
     const {id} = useParams();

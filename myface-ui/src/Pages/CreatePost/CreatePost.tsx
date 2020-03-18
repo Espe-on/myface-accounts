@@ -1,8 +1,8 @@
 ﻿import React, {FormEvent, useState} from "react";
 import {Page} from "../Page/Page";
-import {createPost} from "../../Api/apiClient";
 import {Link} from "react-router-dom";
 import "./CreatePost.scss";
+import {createPost} from "../../ApiTasks/Posts/createPost";
 
 type FormStatus = "READY" | "SUBMITTING" | "ERROR" | "FINISHED"
 

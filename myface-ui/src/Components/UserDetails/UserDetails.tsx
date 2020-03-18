@@ -1,7 +1,7 @@
 ﻿import React, {useEffect, useState} from 'react';
 import "./UserDetails.scss";
-import {fetchUser} from "../../Api/apiClient";
 import {User} from "../../Models/Interfaces/User";
+import {fetchUser} from "../../ApiTasks/Users/fetchUser";
 
 interface UserDetailsProps {
     userId: string;
@@ -9,16 +9,16 @@ interface UserDetailsProps {
 
 export function UserDetails(props: UserDetailsProps): JSX.Element {
     const [user, setUser] = useState<User | null>(null);
-    
+
     useEffect(() => {
         fetchUser(props.userId)
             .then(response => setUser(response));
     }, [props]);
-    
+
     if (!user) {
         return <section>Loading...</section>
     }
-    
+
     return (
         <section className="user-details">
             <img className="cover-image" src={user.coverImageUrl} alt="A cover image for the user."/>
