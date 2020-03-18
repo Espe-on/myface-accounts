@@ -19,6 +19,7 @@ namespace MyFace.Repositories
     
     public class UsersRepo : IUsersRepo
     {
+        private readonly IHasherNSalter _hasherNSalter = new HasherNSalter();
         private readonly MyFaceDbContext _context;
 
         public UsersRepo(MyFaceDbContext context)
@@ -61,7 +62,7 @@ namespace MyFace.Repositories
 
         public User Create(CreateUserRequest newUser)
         {
-            byte[] salt = HasherNSalter.MakeSalt();
+            byte[] salt = _hasherNSalter.MakeSalt();
             var insertResponse = _context.Users.Add(new User
             {
                 FirstName = newUser.FirstName,
@@ -71,7 +72,7 @@ namespace MyFace.Repositories
                 ProfileImageUrl = newUser.ProfileImageUrl,
                 CoverImageUrl = newUser.CoverImageUrl,
                 PasswordSalt = salt,
-                HashedPassword = HasherNSalter.DoHash(newUser.RawPassword, salt)
+                HashedPassword = _hasherNSalter.DoHash(newUser.RawPassword, salt)
             });
             _context.SaveChanges();
 
