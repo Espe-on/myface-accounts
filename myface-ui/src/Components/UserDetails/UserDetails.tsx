@@ -1,6 +1,7 @@
 ﻿import React, {useEffect, useState} from 'react';
-import {fetchUser, User} from "../../Api/apiClient";
 import "./UserDetails.scss";
+import {fetchUser} from "../../Api/apiClient";
+import {User} from "../../Models/Interfaces/User";
 
 interface UserDetailsProps {
     userId: string;

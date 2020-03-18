@@ -1,8 +1,8 @@
 ﻿import React from "react";
-import {User} from "../../Api/apiClient";
 import {Card} from "../Card/Card";
 import "./UserCard.scss";
 import {Link} from "react-router-dom";
+import {User} from "../../Models/Interfaces/User";
 
 interface UserCardProps {
     user: User;

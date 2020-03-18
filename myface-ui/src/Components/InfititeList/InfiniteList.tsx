@@ -1,7 +1,7 @@
 ﻿import React, {ReactNode, useEffect, useState} from "react";
-import {ListResponse} from "../../Api/apiClient";
 import {Grid} from "../Grid/Grid";
 import "./InfiniteList.scss";
+import {ListResponse} from "../../Models/Interfaces/ListResponseT";
 
 interface InfiniteListProps<T> {
     fetchItems: (page: number, pageSize: number) => Promise<ListResponse<T>>;

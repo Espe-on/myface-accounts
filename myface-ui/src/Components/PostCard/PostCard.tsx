@@ -1,8 +1,8 @@
 ﻿import React from "react";
-import {Post} from "../../Api/apiClient";
 import {Card} from "../Card/Card";
 import "./PostCard.scss";
 import {Link} from "react-router-dom";
+import {Post} from "../../Models/Interfaces/Post";
 
 interface PostCardProps {
     post: Post;

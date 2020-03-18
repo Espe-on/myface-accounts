@@ -1,44 +1,7 @@
-﻿export interface ListResponse<T> {
-    items: T[];
-    totalNumberOfItems: number;
-    page: number;
-    nextPage: string;
-    previousPage: string;
-}
-
-export interface User {
-    id: number;
-    firstName: string;
-    lastName: string;
-    displayName: string;
-    username: string;
-    email: string;
-    profileImageUrl: string;
-    coverImageUrl: string;
-}
-
-export interface Interaction {
-    id: number;
-    user: User;
-    type: string;
-    date: string;
-}
-
-export interface Post {
-    id: number;
-    message: string;
-    imageUrl: string;
-    postedAt: string;
-    postedBy: User;
-    likes: Interaction[];
-    dislikes: Interaction[];
-}
-
-export interface NewPost {
-    message: string;
-    imageUrl: string;
-    userId: number;
-}
+﻿import {NewPost} from "../Models/Interfaces/NewPost";
+import {User} from "../Models/Interfaces/User";
+import {ListResponse} from "../Models/Interfaces/ListResponseT";
+import {Post} from "../Models/Interfaces/Post";
 
 export async function fetchUsers(searchTerm: string, page: number, pageSize: number): Promise<ListResponse<User>> {
     const response = await fetch(`https://localhost:5001/users?search=${searchTerm}&page=${page}&pageSize=${pageSize}`);
